@@ -20,7 +20,7 @@ class App extends React.Component {
     renderTodos = () => {
         return this.state.todos.map(item => {
             
-            return <TodoItem key={item.id} item={item} />
+            return <TodoItem key={item.id} item={item} deleteItem={this.deleteItem} />
         })
     }
 
@@ -34,6 +34,22 @@ class App extends React.Component {
         })
     }
 
+    deleteItem = (id) => {
+        fetch(`http://localhost:500/todos/${id}`, {
+            method: "DELETE"
+        })
+        .then(() => {
+            this.setState({
+                todos: this.state.todos.filter(item => {
+                    return item.id !== id
+                })
+            })
+        })
+        .catch((error) => {
+            console.log("delete items error", error)
+        })
+        
+    }
     addTodo = (event) => {
         event.preventDefault()
         axios({
