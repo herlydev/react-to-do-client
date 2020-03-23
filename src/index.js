@@ -35,7 +35,7 @@ class App extends React.Component {
     }
 
     deleteItem = (id) => {
-        fetch(`https://flask-todo-api5.herokuapp.com/${id}`, {
+        fetch(`https://flask-todo-api5.herokuapp.com/todos/${id}`, {
             method: "DELETE"
         })
         .then(() => {
