@@ -25,7 +25,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:5000/todos")
+        fetch("https://flask-todo-api5.herokuapp.com/todos")
         .then(response => response.json())
         .then(data => {
             this.setState({
@@ -35,7 +35,7 @@ class App extends React.Component {
     }
 
     deleteItem = (id) => {
-        fetch(`http://localhost:500/todos/${id}`, {
+        fetch(`https://flask-todo-api5.herokuapp.com/${id}`, {
             method: "DELETE"
         })
         .then(() => {
@@ -54,7 +54,7 @@ class App extends React.Component {
         event.preventDefault()
         axios({
             method: "post",
-            url: 'http://localhost:5000/todo',
+            url: 'https://flask-todo-api5.herokuapp.com/todo',
             headers: { "content-tpe": "application/json"},
             data: {
                 title: this.state.todo,
