@@ -61,7 +61,7 @@ class App extends React.Component {
                 done: false
             }
         }).then(response => {
-            console.log(response)
+           
             this.setState({
                 todos: [...this.state.todos, response.data],
                 todo: ""

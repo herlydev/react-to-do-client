@@ -33,7 +33,7 @@ class TodoItem extends React.Component {
                     onClick={this.toggleDone}
                 />
                 <p className={this.state.done ? "done" : null}>{this.props.item.title}</p>
-                <button>delete</button>
+                <button onClick={() => this.props.deleteItem(this.props.item.id)}>delete</button>
             </div>
         )
     }
