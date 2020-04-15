@@ -12,7 +12,8 @@ class App extends React.Component {
 
         this.state = {
             todo: "",
-            todos: []
+            todos: [],
+            date: new Date().toLocaleString()
         }
 
     }
@@ -78,10 +79,12 @@ class App extends React.Component {
         })
     }
 
+    
     render() {
         return(
             <div className="app">
-                <h1>Todo List</h1>
+                <h1 className="todo-title">My To-Do List for Today</h1>
+                <h3 className="date-time">{this.state.date}</h3>
                 <form className="add-todo" onSubmit={this.addTodo}>
                     <input
                         type="text"
